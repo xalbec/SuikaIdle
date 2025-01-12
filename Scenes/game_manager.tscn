@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://wprcoqfapkf1"]
+
+[ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_68ani"]
+[ext_resource type="PackedScene" uid="uid://pdxkgycabj8v" path="res://Scenes/red_slime.tscn" id="2_e40r6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tg241"]
+rough = true
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_so7aw"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_knyqr"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6qb8f"]
+
+[node name="GameManager" type="Node2D"]
+script = ExtResource("1_68ani")
+
+[node name="Container" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_tg241")
+
+[node name="Floor" type="CollisionShape2D" parent="Container"]
+position = Vector2(0, 648)
+shape = SubResource("WorldBoundaryShape2D_so7aw")
+
+[node name="LeftWall" type="CollisionShape2D" parent="Container"]
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_knyqr")
+
+[node name="RightWall" type="CollisionShape2D" parent="Container"]
+position = Vector2(1152, 0)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_6qb8f")
+
+[node name="RedSlime" parent="." instance=ExtResource("2_e40r6")]
+position = Vector2(187, 103)
