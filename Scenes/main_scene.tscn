@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://wprcoqfapkf1"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tg241"]
+rough = true
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_so7aw"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_knyqr"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6qb8f"]
+
+[node name="MainScene" type="Node2D"]
+
+[node name="Container" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_tg241")
+
+[node name="Floor" type="CollisionShape2D" parent="Container"]
+position = Vector2(0, 648)
+shape = SubResource("WorldBoundaryShape2D_so7aw")
+
+[node name="LeftWall" type="CollisionShape2D" parent="Container"]
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_knyqr")
+
+[node name="RightWall" type="CollisionShape2D" parent="Container"]
+position = Vector2(1152, 0)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_6qb8f")
