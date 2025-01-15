@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://rcqvdqvoc4i"]
+
+[ext_resource type="Script" path="res://Scripts/Slimes/yellow_slime.gd" id="1_uy5mu"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yy6x6"]
+bounce = 0.15
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w84nj"]
+
+[node name="YellowSlime" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_yy6x6")
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_uy5mu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w84nj")

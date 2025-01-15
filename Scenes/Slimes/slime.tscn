@@ -1,13 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://da35k7fm72nhl"]
+[gd_scene load_steps=5 format=3 uid="uid://da35k7fm72nhl"]
 
 [ext_resource type="Script" path="res://Scripts/Slimes/slime.gd" id="1_y03o5"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tninj"]
+bounce = 0.15
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_jwreh"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_pva88"]
+
 [node name="Slime" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_tninj")
 script = ExtResource("1_y03o5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_jwreh")
+
+[node name="MergeArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MergeArea"]
+shape = SubResource("CircleShape2D_pva88")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
